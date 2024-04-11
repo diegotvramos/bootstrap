@@ -56,8 +56,81 @@ en la parte lateral izquierdo, se encuentra todo los temas de la documentación.
 
 En la parte central vamos a encontrar el contenido de esa seccion. Hay algunas documentaciones que lo que hacen es poner un menú de las secciones de ese contenido.
 
+![estructura-bootstrap](/assets/estructura-documentacion.JPG)
+
 > `On this page ` (en esta página que vamos a ver)
 
+Quiero que te des cuenta como están construidas toda las documentaciones.
 
+> **Es el primer paso que debes identificar** la **Forma** la  *Estructura y donde vas a encontrar cada cosa de la documentación de Bootstrap* si te pones a investigar la documentación de algun otro proyecto. te vas a dar cuenta que siguen la misma estructura, ya es una cuestion  de Usabilidad.
+
+
+### Sección Getting started
+
+!Empieza rapido
+
+en la version 4 ya dejaron la dependencia de ``Jquery``. la mayoria de estos _frameworks frontend_ cuando salieron 2010 -2011 no era muy bueno despues de 2015 jquery perdió su sentido de ser util, hoy en dia se sigue utilizando pero para darle mentenimiento a sitios web que en años nunca les han dado mantenimiento o por que ya tengan una plantilla de código muy vieja o por que utilizen _WordPress_ en la gran cantidad de plugins y plantillas que ha generado la comunidad pues sigue utilizando jquery 2024 
+
+desde 2016 javaScript de forma pura lo que se conoce como(VanillaJS) ya nos entrega todo eso que antes hacia por nosotros _Jquery_
+
+materialcss es el primer framework que se desintoxicó de `Jquery` solo tiene 2 versiones. 😔😔
+
+lo unico que mandamos a llamar son: 
+
+> las hojas de estilo de bootstrap
+
+> el javaScript
+
+>> java script utiliza otra libreria interna llamada `Popper.js` es una libreria que se utiliza para la parte de los tool-tips si no los vas a usar, podrian utilizar la version de bootstrap que no incluye `Popper.js` 
+
+**Inicio rápido**
+
+copiamos y pegamos el código html con los enlaces incluidos del CDN DE BOOTSTRAP Y JAVASCRIPT.
+
+```html
+    <!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1>Hello, world!</h1>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>
+```
+si ejecutamos, ve que no tiene la tipografia Time NewsRoman predeterminada de los navegadores es la tipografia de Bootstrap.
+
+> **Recomendación**. cada vez que ustedes vayan a comenzar un proyecto con bootstrap lo primero que deben hacer es irse a copiar este template ☝☝ salvo que si ustedes esten haciendo un proyecto en react, angular y entonces ahi lo vayan bajando como dependencias, ya ahi se adaptan a la estructura de la herramienta con la que estén trabajando.
+
+> Para aquellos que estén desarrollando aplicaciones con frameworks reactivos y quieran implementar bootstrap a su flujo de trabajo les invito a que se leean la guia de documentación para implementar Bootstrap en un proyecto que esté gestionado con `Webpack` o en un proyecto que esté gestionado con `Parcel` o `Vite`(nuevo) {es para la gente que esté desarrollando aplicaciones} 
+
+Para los que desarrollamos sitios vean como simplemente mandando a llamar los CDNS ya tenemos listo el Template Start de bootstrap.
+
+### Seccion Customize.
+
+Es para poder configurar personalizar, a nuestro antojo la parte de variables, colores, tipografias.
+
+El código fuente de bootstrap está escrito en SASS. y en la documentacion les va dando una guia de como ir importando cada cosa, y vean que cad una de las secciones de bootstrap tiene su propio archivo SASS .
+
+De forma básica Bootstrap siempre ha tenido estos colores: color primario, color secundario de éxito... desde la version 4 de Bootstrap hay una gama de colores, solamente que para utilizar estas variantes tienes que trabajar con SASS.
+
+> la seccion _Customize_ de la documentación  es para explicarte la integracion de si tu queres sacarle mayor provecho mayor personalizacion a Bootstrap, **te recomiento en la medida de lo posible no modifiques los valores drasticamente** por que cuando tu ese proyecto lo queras descargar otra vez una nueva version de bootstrap pues esa nueva version va planchar los valores que hayas modificado, por eso es muy importante la estructura de archivo que te dice.
+
+your-project/
+├── scss/
+│   └── custom.scss
+└── node_modules/
+│   └── bootstrap/
+│       ├── js/
+│       └── scss/
+└── index.html
+
+no debes tocar el codigo que te da bootstrap eso tiene que estár en la carpeta _node_modules_(no tocar) de tu proyecto u aplicación, y ya lo que tu quiereas configurar, lo pones en `custom.scss` entonces no vayas a modificar los valores en código fuente de Bootstrap por que a la siguiente vez que actualizes bootstrap esos valores se van a planchar.
+
+> Recuerda hacerlo en una hoja super css `.SCSS` independiente
 
 
