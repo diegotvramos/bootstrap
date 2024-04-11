@@ -131,6 +131,252 @@ your-project/
 
 no debes tocar el codigo que te da bootstrap eso tiene que estár en la carpeta _node_modules_(no tocar) de tu proyecto u aplicación, y ya lo que tu quiereas configurar, lo pones en `custom.scss` entonces no vayas a modificar los valores en código fuente de Bootstrap por que a la siguiente vez que actualizes bootstrap esos valores se van a planchar.
 
-> Recuerda hacerlo en una hoja super css `.SCSS` independiente
+> Recuerda hacerlo en una hoja super css `.SCSS` independiente.
+
+> Toda esta sección de _Customize_  es todo los cambios toda la organización del código fuente en este metaleguaje llamado SASS que al final compila y nos entrega esa hoja css que yo estoy mandando a llamar desde la _CDN_
+
+### Sección Layout(disposición): Brakpoints y Containers
+
+#### Breakpoints
+
+Son los puntos de interrupción que utilizamos en el diseño css para poder cambiar la distribución de la maquetación  es lo que nos permite cambiar de una columna a dos columnas conforme vayamos teniendo mas ancho de pantalla, o tambien aplicar ciertas mediaqueris especiales para cuando el usuario no prefiera animaciones o prefiera temas oscuros
+
+![breakpoints](/assets/breakpoints.JPG)
+
+trata de aprenderte de memoria este cuadro, por que son las media queris  que utiliza bootstrap .
+
+las media queris de Bootstrap son: donde (Prefijo- md, sm, lg)
+
+**Extra small (none)** siendo la primera (no tiene prefijo de clase) su dimenciones van a ser  menosde 576px, osea si tu tienes una interfaz de hasta 575px de anchura ahi va aplicar el primer _breakpoint_ que es _extra small_(por defecto)
+
+**Small (sm)** y va ser mayor o igual a 576px hasta 767px 
+
+**Medium (md)** mayor o igual  a 768px hasta 991px
+
+
+Si tú trabajas _bootstrap_ con SASS hay un archivo que se llama: `_variables.scss` si tu decides modificar esas mediaQueris lo puedes hacer modificando el código fuente con un archivo SASS que tu vayas configurando.
+
+Bootstrap es un framework _Movile First_ eso significa que las media queris van a estar con la propiedad ``min-width`` 
+
+Cada vez que inicien un proyecto, tengan a la mano las media querys ya listas para cuando ya esten desarrollando su sitio puedan tener esto a la mano 
+
+```css
+  /* // Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {  }
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {  }
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {  }
+
+/* // X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {  }
+
+/* // XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {  }
+```
+#### Containers
+
+En la cabezera de la docuemntacion de bootstrap, el color morado fluye al 100% 
+
+Los conenedores en bootstrap nos permiten definir cierto margen a la izquierda y a la derecha para nuestro contenido, 
+
+si inspeccionamos el conenido de la cabezera tambien está dentro de un contenedor `.container-xxl`
+
+![containers](/assets/containers.JPG)
+
+en la version 4 teniamos el contenedor normalito ya tenemos mas tamaños
+
+¿en que radica la diferencia de estos? 
+pues el tamaño de anchura que tienen en cada una de las _Mediaqueris_ y por ende el espaciado de margen de izquierda y derecha 
+
+en el primer tamaño que `Extra small` todos ocupan el 100% de la pantalla
+
+**small** en esta mediaquery mira que el contenedor `.container .container-sm` van a medir 540px de ancho eso significa que van a tener al rededor de 36 px de espacio dividido a dos sale a 18px  
+
+Con esta gran variedad de contenedores _bootstrap_ nos da opcion  a ir eligiendo el contenedor que mas nos convenga dependiendo de cuanto espaciado queramos darle  a nuestros elementos Si tu no quieres que tu contenido tenga un contenedor si no que fluya al 100% pues tambien tenemos la clase: `.container-fluid` con esto siempre va estar al 100%
+
+Abajo en la documentación viene la forma para modificar los valores de espaciado via SASS
+
+la otra seccion muy inportante es la GRID.
+
+### Sección Layout: Grid de Bootstrap(Rows & Columns) 
+
+**No vayan a confundirlo con el sistema de maquetacion de un css Grid** 
+
+El diseño web se basó del diseño editorial y en el diseño editorial(revistas periodicos) su sistema de maquetación para desarrollar un proyecto editorial consta de 12 columnas se va distribuyendo el contenido de la revista, periodico. 
+
+Entonces el diseño web al tomar como referencia los conceptos bases del diseño editorial pues tambien trajo esto del _Grid-sistem_ por eso es que la mayoria de los _Frameworks_ como _Bootstrap_ _Fundation_ y es un **Sistema de 12 columnas** 
+
+![grid-system](/assets/grid-system.JPG)
+
+```html
+  <div class="container text-center">
+  <div class="row">
+    <div class="col">
+      Column
+    </div>
+    <div class="col">
+      Column
+    </div>
+    <div class="col">
+      Column
+    </div>
+  </div>
+</div>
+```
+En este pequeño ejemplo si el _grid_ de _bootstrap_ es de 12 elementos eso significa que 12 / 3columnas que voy a tener significa que cada columna puede ocupar  hasta 4 espacios de la grid de bootstrap, actualmente la grid de bootstrap está creada con flexbox 
+
+El ejemplo anterior crea tres columnas de igual ancho en todos los dispositivos y ventanas gráficas utilizando nuestras clases de cuadrícula predefinidas. Esas columnas están centradas en la página con el padre .container.
+
+![layout-grid](/assets/layout-grid.JPG)
+
+esta tablita la tienen que tener muy presente cada vez que vayan a trabajar con bootstrap, por que te explica que tiene 12 columnas
+
+para utilizar el sistema de columnas de bootstrap tu **puedes o no** meter a un contenedor tu estructura de maquetación pero lo que si es forzoso es un elemento de fila _`row`_
+
+> OJO aqui bootstrap para su documentación siempre va estár utilizando las _divs_ en la medida de lo que puedan traten  de trabajar sementicamente no esten utilizando todo el tiempo `DIV` 
+
+ve que las columnas se encerro en una clase llamada `.row` entonces para usar la grid de bootstrap las columnas se tienen que envolver en un contenedor ``row``. 
+
+> Cuando ustedes vayan a maquetar en bootstrap lo ideal es que pienzen en que en cada fila de contenido debe ocupar 12 espacios de la grid entonces todos los elementos que ustedes quieren que compartan el mismo espacio deben de sumar 12 
+
+eje: si van a tener un mapa y un formulario pero quizá el formulario es un poco mas grande que el mapa pues al mapa le dan 4 y al formulario 8 de tal menera que 4col mas 8col es igual a 12col 
+
+> todo los elementos que ustedes quieran  que comparta la misma fila de contenido al final la sumatoria del numero de columnas tiene que dar 12
+
+¿Por que en el ejemplo de bootstrap no viene ningun numerito? 
+por que la grid de bootstrap acual está trabajando con flexbox  entonces gracias a la propiedad que tiene flexbox sobre sus hijos de ignorar al ancho y repartir el espacio proporcionalmente por eso es que acá yo no tuve que ponerle un prefijo de número a la columna y entonces como tiene 3 elementos la grid se adapta
+
+si ejecuto el código demo, ve que el espacio lo divide proporcionalmente
+
+¿Que pasa si es que agrego una columna más?
+
+Gracias a que la grid de bootstrap está maquetada en flexbox se reparten el espacio proporcionalmente, mira que tengo 4 columnas del mismo tamaño
+
+puedes omitir el `.container`
+
+Entonces cuando tu queras que los elementos de las filas que te va formando bootstrap vayan a ser del mismo tamaño puedes omitir el especificar el número, pero cuando ya necesites que ciertos elementos ocupen cierto espaciado.
+
+cuando tu necesites que los elementos que vayan a compartir en la fila de contenido que vayan a tener diferente número entonces para so sirven esta tablita: 
+
+![layout-grid](/assets/layout-grid.JPG) 
+
+esta tablita nos dice:
+
+> en el tamaño extra-small  no hay ningun prefijo `.col` o `.col-`(si no vas a especificar numero de columna) como la `row` es flexbox
+
+lo puesed buscar en la hoja de estilos indentada: `https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.css` 
+
+```css
+  .row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap; /*envuelve a los hijos y cuando los hijos empiezan a tener un 
+  ancho específico si no alcanzan a caber en la primera fila de contenido, lo que va
+  haciendo flexbox es generar una segunda fila, una tercera y una cuarta, etc
+  
+  Eso nos va dar el efecto de tener filas y columnas, no trabaja como GRID CSS donde ahi si
+  podemos definir columnas y filas trabaja con el sistema de fexbox  y gracias a las propiedades
+  de flexbox es que nos permiten tener este sistema de filas y columnas
+
+  */
+  margin-top: calc(-1 * var(--bs-gutter-y));
+  margin-right: calc(-0.5 * var(--bs-gutter-x));
+  margin-left: calc(-0.5 * var(--bs-gutter-x));
+}
+.row > * {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-top: var(--bs-gutter-y);
+}
+```
+Si tu sabes CSS vas a poderle sacar muchisimo provecho a Bootstrap si tu no sabes css tal ves ya te está saliendo humo de la cabeza
+
+**Estableciendo un ancho de columna** 
+
+cuando tu necesites que el ancho de las celdas de tus grids de bootstrap tengan mas espacios unas que otras entonces vas a empezar a utilizar el prefijo.
+
+asi: 
+
+```html
+  <div class="container text-center">
+      <div class="row">
+        <div class="border col">
+          Column
+        </div>
+        <div class="border col-6">
+          Column
+        </div>
+        <div class="border col">
+          Column
+        </div>
+        <div class="border col">
+          Column
+        </div>
+      </div>
+    </div>
+```
+![ancho](/assets/ancho-col.JPG)
+
+La segunda columna ocupa la proporcion de 6 columnas 
+
+![reticula](/assets/reticula.JPG)
+
+```css
+  .col-6 {
+    flex: 0 0 auto;/*esta propiedad es la que a las columnas de bootstrap cuando no 
+    las especificamos un ancho se adapta al tamaño (reparte el espacio entre los números de elementos que haya)
+    pero cuando ya le agregamos un numerito estos se comvierte en un porcentaje que equivale a una 12va fraccion
+    de la reticula que aco de diseñar en figma
+    */
+    width: 50%; /*tiene el ancho del 50%*/
+  }
+```
+
+¿Que pasa cuando el numero de columnas especificados pasa de 12?
+
+pues crea otra fila se desplaza a la fila siguiente
+
+```html
+<div class="container text-center">
+      <div class="row">
+        <div class="border col-3">
+          Column
+        </div>
+        <div class="border col-6">
+          Column
+        </div>
+        <div class="border col-3">
+          Column
+        </div>
+        <div class="border col">
+          Column
+        </div>
+      </div>
+    </div>
+```
+
+
+![desplazamiento](/assets/desplazamiento.JPG)
+
+¿y por que está ocupando todo el espacio? recuerda que esa cuarta columna no tiene un valor especificado, recuerda que gracias a la propiedad de `flex` lo que hace es ocupar el espacio disponible y como ya no hay mas columnas hermanas  ocupa todo el espacio disponible
+
+en la version 3 la grid de bootstrap estaba maquetada con los viejos floats desde que bootstrap implementó  en su version 4 la grid con flexbox podemos tener la combinacion de ir definiendo el ancho especifico tomando en cuenta el sitema de referencia de 12 columnas o tambien ir aprovechando esto de si no especificamos el valor se va adaptar al espacio proporcional que sobre.
+
+tienes que probar como es que van funcionando la mezcla de estas combinaciones tanto el 'tamaño de las mediaqueris(_breakpoints sm -lg, -xl_)' como por los números
+
+> lo primero que vamos a hacer en este sitio que vamos a maquetar es ir definiendo esos tamaños
+
+> Gracias a esto, bootstrap nos va permitir hacer interfaces responsivas muy cencillas 
+
+> {TODO ES POR PORCENTAJES 100% / 12}
+
+
 
 
