@@ -378,5 +378,133 @@ tienes que probar como es que van funcionando la mezcla de estas combinaciones t
 > {TODO ES POR PORCENTAJES 100% / 12}
 
 
+### Sección Layout: Grid Responsiva 
+
+```html
+  <h2>Grid Responsiva</h2>
+    <!-- section.row>article.border.col-12.col-sm-6.col-md-4.col-lg-3.col-xl-2.col-xxl-1*19{Elemento $} -->
+    <!-- 
+      
+      en el tamaño (extra-small)  quiero 1 columna entonces 12 / 1 = 12 [ojo, no tiene prefijo como los demas]
+      en el tamaño SM  quiero 2 columnas entonces 12 / 2 = 6
+      En el tamaño MD quiero 3 columnas entonces 12 / 3 = 4
+      En el tamaño LG quiero 4 columnas entonces 12 / 4 = 3
+      En el tamaño XL quiero 6 columnas entonces 12 / 6 = 2
+      En el tamaño XXL quiero 12 columnas entonces 12 / 12 = 1
+     -->
+
+    <section class="row">
+      <article class="border col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Elemento 1</article>
+      <article class="border col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Elemento 2</article>
+      <article class="border col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Elemento 3</article>
+      <article class="border col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Elemento 4</article>
+      <article class="border col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Elemento 5</article>
+      <article class="border col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Elemento 6</article>
+      <article class="border col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Elemento 7</article>
+      <article class="border col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Elemento 8</article>
+      <article class="border col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Elemento 9</article>
+      <article class="border col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Elemento 10</article>
+      <article class="border col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Elemento 11</article>
+      <article class="border col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Elemento 12</article>
+      <article class="border col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Elemento 13</article>
+      <article class="border col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Elemento 14</article>
+      <article class="border col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Elemento 15</article>
+      <article class="border col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Elemento 16</article>
+      <article class="border col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Elemento 17</article>
+      <article class="border col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Elemento 18</article>
+      <article class="border col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Elemento 19</article>
+    </section>
+```
+
+Cuando tu ya tienes la referencia quizá en un figma en una imagen la UI (iterface user) o como yo que ya tengo construido el sitio, va ser muy sencillo poder generarlo
+
+Ve que las columnas fluyen al 100% de la pantalla
+
+¿Que pasa si aplico la clase contenedor? 
+
+pues lo que hace es dar un espaciado a los lados tanto de margen izuierdo como Derecho, 
+
+![cabezera](/assets/cabezera.JPG)
+
+mientras que el colorcito morado de la cabezera fluye al 100%  el contenido de la cabezera que va del logo al boton de modo oscuro, está  dentro de un contenedor
+
+¿De que va depender?
+
+![container](/assets/containers.JPG)
+
+si pones por ejemplo `.container-lg` apartir de el punto de interrupcion de tamaño `lg` es que se aplica el contenedor para adelante:
+
+```css
+  .container,
+.container-fluid,
+.container-xxl,
+.container-xl,
+.container-lg,
+.container-md,
+.container-sm {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+```
+
+> Aquí el `.container-sm` en tamaño _Extra small_ va estár al 100% pero que en _small_ ya no va estar al 100% sino el maximo tamaño va tener 540px(**Es el tamaño que va tener el contenedor**) 
+
+> Aquí la cuestion es que vayan viendo que contenedor les funciona, **Personalmente yo utilizo el container normalito** por que pues ya estoy acostumbrado a utilizarlo  muy pocas veces utilizé : `.container-sm,.container-md,.container-lg,.container-xl,.container-xxl,` pero no dudes en utilizarlo si lo necesitas
+
+Si yo le pongo `.container-flid` a mi grid del contenedor se va conportar como la que no tiene contenedor y fluid al 100%, el contenedor fluido fluye al 100%
+
+```html
+   <h2>Grid Responsiva en un contenedor</h2>
+    <div class="container-fluid">
+
+      <section class="row">
+        <article class="border col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Elemento 1</article>
+        <article class="border col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Elemento 2</article>
+        <article class="border col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Elemento 3</article>
+        <article class="border col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Elemento 4</article>
+        <article class="border col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Elemento 5</article>
+        <article class="border col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Elemento 6</article>
+        <article class="border col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Elemento 7</article>
+        <article class="border col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Elemento 8</article>
+        <article class="border col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Elemento 9</article>
+        <article class="border col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Elemento 10</article>
+        <article class="border col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Elemento 11</article>
+        <article class="border col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Elemento 12</article>
+        <article class="border col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Elemento 13</article>
+        <article class="border col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Elemento 14</article>
+        <article class="border col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Elemento 15</article>
+        <article class="border col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Elemento 16</article>
+        <article class="border col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Elemento 17</article>
+        <article class="border col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Elemento 18</article>
+        <article class="border col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 col-xxl-1">Elemento 19</article>
+      </section>
+```
+
+Tambien Podemos manejar alineacion horizontal, vertical, cambiar el orden de los elementos(order classes) pero tienes que tener conocimientos solidos de FlexBox.
+
+¿Que pasa si yo quiero tener un espacio vacio entre 2 columnas?
+
+_https://getbootstrap.com/docs/5.3/layout/columns/#offsetting-columns_
+
+Muchos lo que hacen es establecer una div que tenga el número de columnas que va representar ese espacio vacio y lo dejan sin contenido pero eso a nivel de html no está bien dejar un elemento vacio, entonces para eso cuando nosotros necesitemos dejar espacios vacios  dentro de la grid de 12 columnas. para eso tenemos: 
+
+**OFFSETTING-COLUMNS**
+
+lo que hay que hacer es agregar la clase ``.offset`` , la media queri donde lo vayamos a querer aplicar y el numero de columnas que vamos a dejar hacia la izquierda: 
+
+![offsetting-columns](/assets/offsetting-columns.JPG)
+
+
+
+> Esto siempre va ser hacia la Izquierda. 
+
+> a la derecha realmente si ya no tienes elementos ese espacio va quedar por defecto vacio por como estamos acostumbrados a trabajar el acomodo de los elementos en html y css.
+
+### 
 
 
