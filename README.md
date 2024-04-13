@@ -505,6 +505,214 @@ lo que hay que hacer es agregar la clase ``.offset`` , la media queri donde lo v
 
 > a la derecha realmente si ya no tienes elementos ese espacio va quedar por defecto vacio por como estamos acostumbrados a trabajar el acomodo de los elementos en html y css.
 
+### Sección Layout: Gutters, Utilities y CSS Grid
+
+**Gutters**
+
+No es mas que el espaciado que podemos tener entre nuestras columnas, esto lo podemos trabajar a nivel de código css con el _padding_ y la propiedad _gap_ disponible en ``flexbox`` y en ``grid-css``
+
+`https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layoutTypical_use_cases_of_flexbox#card_layout_pushing_footer_down`
+
+La propiedad CSS _grid-gap_ es una propiedad abreviada shorthand para grid-row-gap (en-US) y grid-column-gap que especifica los canales entre las filas y las columnas de la cuadrícula.
+
+Más adelante en la seccion de clases utilitarias que hay clases que empiezan con `p` y otras que empiezan con `m` donde nos permiten aplicar tanto a los cuatro lados del modelo de caja como a los lados de forma independiente aplicar justamente ese espaciado tambien los podemos hacer con  con las clases que empiezan con `gx-5`(aplica gap en _x_ o _y_) 
+
+```css
+  .g-5,
+  .gx-5 {
+    --bs-gutter-x: 3rem;
+  }
+```
+
+**Utilities**
+
+si ustedes saben los fundamentos solidos de css le van a sacar muchisimo provecho a bootstrap y a cualquier framework.
+
+Esta seccion de las `utilities` no es mas que la revición de todo los elementos de los cuales se utiliza bootstrap para crear su grid en CSS la propiedad `display` las opciones de flexbox el margin y el padding
+
+**z-index (super-posición)**
+
+Se usa cuando queremos darle profundidad a elementos que tengamos posicionados 
+
+**Grid CSS**
+
+la grid de bootstrap que ahorita está hecha con flexbox va estar diseñada y maquetada con `Grid css`
+
+
+> Aviso: ¡nuestro sistema CSS Grid es experimental y está habilitado a partir de la versión 5.1.0! Lo incluimos en el CSS de nuestra documentación para mostrárselo, pero está deshabilitado de forma predeterminada. Continúe leyendo para aprender cómo habilitarlo en sus proyectos.
+
+
+> CSS Grid es opcional. Deshabilite el sistema de cuadrícula predeterminado configurando $enable-grid-classes: falsey habilite CSS Grid configurando $enable-cssgrid: true. Luego, vuelve a compilar tu Sass.
+
+```html
+  <div class="grid text-center">
+    <div class="g-col-3 g-start-2">.g-col-3 .g-start-2</div>
+    <div class="g-col-4 g-start-6">.g-col-4 .g-start-6</div>
+  </div>
+```
+Aún está en una version experimental
+
+tal vez en la version 6, la grid oficial de bootstrap que actualmente está en _Flexbox_ se remplase por _grid_,  aquí todas estas nuevas opciones que flexbox, ya se implemento a la grid de bootsprap como alineacion vertical, horizontal lo de los espaciados `gutters` eso no se pierde
+
+> por que muchas de las propiedades de alineacion, ordenamiento y espaciado en Flexbox Funcionan exactamente igual en grid
+
+> Tienes que tener nociones, y conocimientos solidos de CSS por que sino va ser muy dificil que puedas sacar el maximo provecho a estas herramientas, es como querrerte saltar a programar en react.js y no tener conocimientos solidos de JavaScript, del DOM
+
+Creo que entender la _Grid_ de bootstrap es lo mas importante ya de ahi en fuera va ser leer la documentacion del componente o de la opcion que queras utilizar ver los nombres de las clases, copiar y pegar código
+
+### Sección Content
+
+Tiene que ver con todo el reinicio de algunos elementos HTML, es la normalizacion que hace Bootstrap de las etiquetas html, tambien nos van a dar algunas variables que si tu trabajas en bootstrap con ``sass`` las vas a poder modificar como: El tamaño de la letra, la familia de fuentes color de texto el color de fondo, alineacion.
+
+tamaño de los encabezados, las etiquetas hr(reglas horizontales) los elementos de lista, diseño predeterminado de las tablas... etc
+
+> Esta seccion es basicamente para que te des una idea de como inicia nativamente cada etiqueta html o cada grupo de etiquetas html en bootstrap tambien tiene la seccion de tipografia.
+
+**Typography**
+
+podemos ver el tamaño de los encabezados, las clases por que bootstrap tiene una clase particular.
+```html
+  <h1>h1. Bootstrap heading</h1>
+  <h2>h2. Bootstrap heading</h2>
+  <h3>h3. Bootstrap heading</h3>
+  <h4>h4. Bootstrap heading</h4>
+  <h5>h5. Bootstrap heading</h5>
+  <h6>h6. Bootstrap heading</h6>
+
+
+
+<!-- como son h1 o h2 usan el mismo tamaño -->
+  <p class="h1">h1. Bootstrap heading</p>
+  <p class="h2">h2. Bootstrap heading</p>
+  <p class="h3">h3. Bootstrap heading</p>
+  <p class="h4">h4. Bootstrap heading</p>
+  <p class="h5">h5. Bootstrap heading</p>
+  <p class="h6">h6. Bootstrap heading</p>
+```
+tanto a la etiqueta como a la clase tiene el mismo tamaño.
+
+```css
+  h1, .h1 {
+  font-size: calc(1.375rem + 1.5vw);
+}
+```
+
+` <p class="h1">DIEGO villacorta</p>` pero funciona, lo utilizaria por diseño  (por semantica solo debemos tener un encabezado h1) por página pero le puedes dar a cualquier párrafo el tamaño de la h1, h2 ... por que botstrap trae esas clases
+
+**Display**
+
+es un tamaño de letra mas grande, se puede usar para las _Hero-image_
+
+```css
+  .display-1 {
+    font-size: calc(1.625rem + 4.5vw); /*significa que si tú a un texto le aplicas la clase 
+    display 1 va estar creciendo proporcionalmente no se va mantener estático este es un concepto
+    del diseño FLUIDO (FLUID DESIGN) 
+    */
+    font-weight: 300;
+    line-height: 1.2;
+  }
+```
+
+desde la version 5 de bootstrap ya utilizan muchas de las funciones avanzadas de css como calc, min, max.
+
+Lo que hace bootstrap con su tipografia  es hacer una _tipografia responsiva_ 
+
+**Elementos de texto en linea**
+
+![inline-text-elements](/assets/text-line-elements.JPG)
+
+```html
+  <p>You can use the mark tag to <mark>highlight</mark> text.</p>
+  <p><del>This line of text is meant to be treated as deleted text.</del></p>
+  <p><s>This line of text is meant to be treated as no longer accurate.</s></p>
+  <p><ins>This line of text is meant to be treated as an addition to the document.</ins></p>
+  <p><u>This line of text will render as underlined.</u></p>
+  <p><small>This line of text is meant to be treated as fine print.</small></p>
+  <p><strong>This line rendered as bold text.</strong></p>
+  <p><em>This line rendered as italicized text.</em></p>
+```
+tamtien tiene estilos para las citas:
+**blockquotes**
+
+
+**nombrar a una fuente**
+
+![naming-a-source](/assets/naming.JPG)
+
+```html
+  <figure>
+  <blockquote class="blockquote">
+    <p>A well-known quote, contained in a blockquote element.</p>
+  </blockquote>
+  <figcaption class="blockquote-footer">
+    Someone famous in <cite title="Source Title">Source Title</cite>
+  </figcaption>
+</figure>
+```
+
+**Alignmente** 
+Una crítica bastante constructiva, yo no sé por que lo cambiaron, y esto lo vamos a ver en la seccion de los padding y los margins, bootstrap desde sus inicios tiene  4 clases para alinear el texto: ``text-left, text-center, text-righ, text-justify`` y las clases que tenian que ver con `margin-rigt, margin-left, o pading-right, pading-left` abreviando era(ml, pl, pr)
+
+pero en la vercion 5 se les ocurio la idea de para hacerlo mas orientado al modelo de alineacion  del box model ahora todo lo que era `left` fue remplazado por `Start` y todo lo que tiene que ver con `right` fue remplazado por `end`
+
+```html
+  <figure class="text-end">
+  <blockquote class="blockquote">
+    <p>A well-known quote, contained in a blockquote element.</p>
+  </blockquote>
+  <figcaption class="blockquote-footer">
+    Someone famous in <cite title="Source Title">Source Title</cite>
+  </figcaption>
+</figure>
+```
+
+```css
+  .text-end {
+    text-align: right !important;
+  }
+```
+
+**Images**
+
+Yo pensaria que las imagenes fueran por defecto default responsivas pero no, si tu quieres que la imagen sea responsiva osea el `max-width:100%`tienes que usar la clase `.img-fluid`
+
+```css
+  .img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+```
+
+**La Etiqueta Picture**
+
+nos permite tener imagenes responsivas y adaptables
+
+Si está utilizando el ``<picture>``elemento para especificar varios ``<source>``elementos para un elemento específico ``<img>``, asegúrese de agregar las .img-*clases a la etiqueta ``<img>``y no a la ``<picture>``misma.
+
+```html
+  <picture>
+  <source srcset="..." type="image/svg+xml">
+  <img src="..." class="img-fluid img-thumbnail" alt="...">
+</picture>
+```
+
+**Tables**
+nos explica los diferentes estilos que le podemos aplicar a las tablas y a sus elementos, recuerda que como toda la parte de la documentacion es que te des cuenta  que clases tienes que activar o desactivar  en tus elementos HTML 
+
+**Figure**
+
+Documentación y ejemplos para mostrar imágenes y texto relacionados con el componente de figura en Bootstrap.
+
+```html
+  <figure class="figure">
+  <img src="..." class="figure-img img-fluid rounded" alt="...">
+  <figcaption class="figure-caption">A caption for the above image.</figcaption>
+</figure>
+```
+
 ### 
+
+
 
 
