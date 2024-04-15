@@ -2,7 +2,12 @@
 
 # TALLER DE BOOTSTRAP
 
+
+
+
 ### Introduccion
+
+`https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.css` Codigo fuente.
 
 Es un _framework_ hecha por gente que trabajaba en twiter, en el año 2011.
 
@@ -711,7 +716,524 @@ Documentación y ejemplos para mostrar imágenes y texto relacionados con el com
 </figure>
 ```
 
-### 
+### Sección Forms.
+
+la primera sección es un  _Overview_ aca nos da los detalles de los elementos de formulario.
+
+Asegúrese de utilizar un typeatributo apropiado en todas las entradas (por ejemplo, emailpara direcciones de correo electrónico o numberinformación numérica) para aprovechar los controles de entrada más nuevos, como verificación de correo electrónico, selección de números y más.
+
+Imagina que tu queres colocar en una aplicación un tipico formulario de Login que pide correo y password. pues mira que ya tienes un demo funcional de bootstrap. `https://getbootstrap.com/docs/5.3/forms/overview/#overview`
+
+```html
+  <form>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+```
+
+Y es la ventaja de Un framework, que ya nos dá cosas preestablecidas.
+
+![login](/assets/login.JPG)
+
+> Recuerda! los elementos de los formularios, los `inputs` son elementos que trabajand en linea(ocupan el espacio que requieren) pues bootstrap los hace elementos de bloque, vé que por eso el formulario está fluyendo al 100% de la pantalla
+
+Pues meterle validaciones por JavaScript validaciones a travez del atributo ``pattern, require`` de html
+
+```html
+<form>
+  <!--desabilita todo el formulario, 'disabled' es como una propiedad de la etiqueta <fieldset> -->
+  <fieldset disabled> 
+    <legend>Disabled fieldset example</legend>
+    <div class="mb-3">
+      <label for="disabledTextInput" class="form-label">Disabled input</label>
+      <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+    </div>
+    <div class="mb-3">
+      <label for="disabledSelect" class="form-label">Disabled select menu</label>
+      <select id="disabledSelect" class="form-select">
+        <option>Disabled select</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="disabledFieldsetCheck" disabled>
+        <label class="form-check-label" for="disabledFieldsetCheck">
+          Can't check this
+        </label>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </fieldset>
+</form>
+```
+> si quieren aprender otro framework, nomas es guiarse de la documentación 
+
+`https://getbootstrap.com/docs/5.3/forms/form-control/`
+
+```html
+  <div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Email address</label>
+  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+</div>
+<div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+</div>
+```
+
+la clase `class="form-control"` eso es lo que le da los estilos muy caracteristicos de los inputs de formulario de bootstrap
+
+Hay clases para controlar el tamaño de la caja
+
+> Solo tienes que poner atención e ir leyendo la documentación para aplicar las diferentes opciones que tiene bootstrap
+
+* Tiene inputs-files de _CARGA DE ARCHIVOS_
+
+* hay el input de tipo color
+
+
+*`https://getbootstrap.com/docs/5.3/forms/form-control/#datalists`*
+* tambien los _data lists_  autocompleta las palabras
+
+Las listas de datos le permiten crear un grupo de ``<option>``mensajes de correo electrónico a los que se puede acceder (y completar automáticamente) desde un archivo ``<input>``. Son similares a ``<select>``los elementos, pero vienen con más limitaciones y diferencias en el estilo del menú. Si bien la mayoría de los navegadores y sistemas operativos incluyen cierto soporte para ``<datalist>``elementos, su estilo es, en el mejor de los casos, inconsistente.
+
+```html
+<label for="exampleDataList" class="form-label">Datalist example</label>
+<input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
+<datalist id="datalistOptions">
+  <option value="San Francisco">
+  <option value="New York">
+  <option value="Seattle">
+  <option value="Los Angeles">
+  <option value="Chicago">
+</datalist>
+```
+
+**select**
+
+
+```html
+<select class="form-select" aria-label="Default select example">
+  <option selected>Open this select menu</option>
+  <option value="1">One</option>
+  <option value="2">Two</option>
+  <option value="3">Three</option>
+</select>
+```
+
+**Checks & radios**
+
+```html
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+  <label class="form-check-label" for="flexRadioDefault1">
+    Default radio
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+  <label class="form-check-label" for="flexRadioDefault2">
+    Default checked radio
+  </label>
+</div>
+```
+
+Y al final para aquellos que vayan a utilizar _bootstrap con SASS_ mira que vienen toda las variables y esas variables tu desde SASS las puedes modificar pero recuerda que:
+
+> tu desde Bootstrap trae varias variables css en su hoja de estilos nativa que tambien nosotros podemos modificar.
+
+Lo primero que tiene bootstrap es la definicion de toda las variables css con las que trabaja, entonces todas estas las vamos a poder modificar.
+
+**Range**
+
+Los inputs de tipo rango
+
+**Input group**
+la etiqueta y el input se vuelve un elemento agrugado.
+
+![input-group](/assets/input-group.JPG)
+
+**layout**
+
+Disposición, aca algunos acomodos, se está ayudando del sistema de grid
+
+![layout](/assets/layout-form.JPG)
+
+```html
+  <div class="row">
+  <div class="col">
+    <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+  </div>
+  <div class="col">
+    <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+  </div>
+</div>
+```
+
+**Validation**
+
+
+Cómo funciona
+Así es como funciona la validación de formularios con Bootstrap:
+
+La validación de formularios HTML se aplica a través de dos pseudoclases de CSS ``:invalidy :valid``. Se aplica a ``<input>``, ``<select>``y ``<textarea>``elementos.
+
+¿que es una pseudoclases de CSS?
+
+Pseudo-classes
+Una pseudoclase CSS es una palabra clave que se añade a los selectores y que especifica un estado especial del elemento seleccionado. Por ejemplo, :hover aplicará un estilo cuando el usuario haga hover sobre el elemento especificado por el selector.
+
+
+```css
+  div:hover {
+  background-color: #F89B4D;
+}
+```
+
+Las pseudoclases, junto con los pseudoelementos, permiten aplicar un estilo a un elemento no sólo en relación con el contenido del árbol de documento, sino también en relación a factores externos como el historial del navegador (:visited, por ejemplo), el estado de su contenido (como :checked en algunos elementos de formulario), o la posición del ratón (como :hover que permite saber si el ratón está encima de un elemento o no).
+
+Nota: En lugar de usar pseudoclases, pseudo-elements puede usarse para dar estilo a una parte específica de un elemento.
+
+Sintaxis
+``selector:pseudoclase { propiedad: valor; }``
+
+Al igual que las clases, se pueden concatenar la cantidad de pseudoclases que se deseen en un selector.
+
+Indice de las pseudo-clases estándar
+:active
+:checked
+:default
+:dir()
+:disabled
+:empty
+:enabled
+:first
+:first-child
+:first-of-type
+:fullscreen
+:focus
+:hover
+:indeterminate
+:in-range
+:invalid
+:lang()
+:last-child
+:last-of-type
+:left
+:link
+:not()
+:nth-child()
+:nth-last-child()
+:nth-last-of-type()
+:nth-of-type()
+:only-child
+:only-of-type
+:optional
+:out-of-range
+:read-only
+:read-write
+:required
+:right
+:root
+:scope (en-US)
+:target
+:valid
+:visited
+
+
+al momento de darle submit from, con colores nos dijo: esto está bien, esto está mal
+
+![alt text](/assets/validation-form.JPG)
+
+```html
+  <form class="row g-3 needs-validation" novalidate>
+  <div class="col-md-4">
+    <label for="validationCustom01" class="form-label">First name</label>
+    <input type="text" class="form-control" id="validationCustom01" value="Mark" required>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+  </div>
+  <div class="col-md-4">
+    <label for="validationCustom02" class="form-label">Last name</label>
+    <input type="text" class="form-control" id="validationCustom02" value="Otto" required>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+  </div>
+  <div class="col-md-4">
+    <label for="validationCustomUsername" class="form-label">Username</label>
+    <div class="input-group has-validation">
+      <span class="input-group-text" id="inputGroupPrepend">@</span>
+      <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+      <div class="invalid-feedback">
+        Please choose a username.
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <label for="validationCustom03" class="form-label">City</label>
+    <input type="text" class="form-control" id="validationCustom03" required>
+    <div class="invalid-feedback">
+      Please provide a valid city.
+    </div>
+  </div>
+  <div class="col-md-3">
+    <label for="validationCustom04" class="form-label">State</label>
+    <select class="form-select" id="validationCustom04" required>
+      <option selected disabled value="">Choose...</option>
+      <option>...</option>
+    </select>
+    <div class="invalid-feedback">
+      Please select a valid state.
+    </div>
+  </div>
+  <div class="col-md-3">
+    <label for="validationCustom05" class="form-label">Zip</label>
+    <input type="text" class="form-control" id="validationCustom05" required>
+    <div class="invalid-feedback">
+      Please provide a valid zip.
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+      <label class="form-check-label" for="invalidCheck">
+        Agree to terms and conditions
+      </label>
+      <div class="invalid-feedback">
+        You must agree before submitting.
+      </div>
+    </div>
+  </div>
+  <div class="col-12">
+    <button class="btn btn-primary" type="submit">Submit form</button>
+  </div>
+</form>
+```
+
+Acá pueden ver los elementos que se están agregando una `div` con el texto _Looks good!_  con la clase `class="valid-feedback"` ahora muy importante.
+
+> tenemos que respetar los IDs y los atributos name, por que es justamente de esa manera como va reaccionar justamente esas validaciones.
+
+Adicionalmente hay que agregar un par de codigo JavaScript 
+
+```javaScript
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+(() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+```
+ejecutas esto en tu programación javaScript,  si lo analizamos, se está autoejecutando por que está en una función anonima autoejecutable está usando el modo estricto  y guarda en una constante `forms` todo los elementos que coincidan con la clase `.needs-validation` por eso es muy importante respetar las clases y los atributos que bootstrap nos ofrecen en su marcado html como esto genera un list node del dom que como tal no es un arreglo aquí gracias al metodo `Array.from(forms).forEach` le permite a esta variable `forms` poder utilizar todo los métodos que tienen los arreglos y entonces poder ejecutar el forEach y lo que está haciendo hasta cierto punto es una mala práctica está generando un  `.addEventListener('submit',` de tipo _submit_ por cada elemento de formulario que exista 
+
+y agrega está clase: `'was-validated'` buscalá en la hoja de css de Bootstrap
+
+Si ustedes quisieran modificar los estilos que ya trae predeterminanamente las clases  de bootstrap. OJO 👁 No lo hagan en hoja de estilos de Bootstrap sinó en una independiente ustedes van haciendo esas modificaciones para que por cascada primero tome los de bootstrap y luego al cargar su hoja de estilos que seria la última que tendria que cargar entonces detecte las modificaciones.
+
+Asi es como lo vamos a hacer 😉
+
+A manera de mejora, yo en lugar de hacer por cada formulario activar un manejador de eventos yo haria la tecnica de la delegación de eventos de al documento asignarle el _Submit_ y simplemente detectar el _target_ si es un formulario desencadenar la programación 
+
+**Validation - tooltips**
+
+![tooltips](/assets/tooltips-form.JPG)
+
+en lugar de que salga los mensajes de navegacion en el documento html,  salen como Tooltips, 
+
+> recuercuerda el codigo fuente de bootrap trane integrada  la libreria _Pooper_ recuerda que en el guetting started nos ofrecian tener separada  la libreria _Pooper_ es la que utiliza bootrap para generar estos `tooltips`
+
+si ustedes eligieron solo el codigo javaScript de bootstrap sin el `Pooper` esto no les va funcionar, por eso para mi por unos cuantos kilobites de lo que pesa la libreria _Pooper_ prefiero integrar el archivo JS que ya trae a pooper y el código fuente de bootstrap.
+
+Tambien puedes modificar los estilos que trae por defecto con SASS.
+
+> ¡TODO RADICA EN ESTAR LEYENDO Y PONIENDOLE ATENCIÓN A LA DOCUMENTACION!
+
+### Components
+
+La seccion de componenetes es una lista de todo los elementos visuales de IU.
+
+Vienen en orden alfabético, tienes que estar leyendo la ducumentación, poner atención, respetar los nombres de clase, los _Data-attributs_ que trae.
+
+los _``Data-attributs``_ son los que permiten cambiar cierto comportamiento en la interactividad.
+
+> Te invito a que leeas a detalle la documentación  de cada uno de los componentes que pretendas utilizar y al igual que en las otas secciones acá abajo viene todo el control de las variables para SASS. Y LAS VARIABLES DISPONIBLES EN CSS. En la hoja de estilos nativa purita.
+
+> Acuerdate que al inicio tiene una sección con toda las variables globales que utiliza pero cada componente internamente trae sus propias variables y eso hace muy comodo la modificacíon directamente  con CSS si no utilizas SASS {ME GUSTA TRABAJAR CON EL CSS ARTESANAL, EL CSS PURO} ami no me gusta usar este tipo de metalenguajes y preprocesadores como SASS 
+
+```css
+  --#{$prefix}accordion-color: #{$accordion-color};
+--#{$prefix}accordion-bg: #{$accordion-bg};
+--#{$prefix}accordion-transition: #{$accordion-transition};
+--#{$prefix}accordion-border-color: #{$accordion-border-color};
+--#{$prefix}accordion-border-width: #{$accordion-border-width};
+--#{$prefix}accordion-border-radius: #{$accordion-border-radius};
+--#{$prefix}accordion-inner-border-radius: #{$accordion-inner-border-radius};
+--#{$prefix}accordion-btn-padding-x: #{$accordion-button-padding-x};
+--#{$prefix}accordion-btn-padding-y: #{$accordion-button-padding-y};
+--#{$prefix}accordion-btn-color: #{$accordion-button-color};
+--#{$prefix}accordion-btn-bg: #{$accordion-button-bg};
+--#{$prefix}accordion-btn-icon: #{escape-svg($accordion-button-icon)};
+--#{$prefix}accordion-btn-icon-width: #{$accordion-icon-width};
+--#{$prefix}accordion-btn-icon-transform: #{$accordion-icon-transform};
+--#{$prefix}accordion-btn-icon-transition: #{$accordion-icon-transition};
+--#{$prefix}accordion-btn-active-icon: #{escape-svg($accordion-button-active-icon)};
+--#{$prefix}accordion-btn-focus-box-shadow: #{$accordion-button-focus-box-shadow};
+--#{$prefix}accordion-body-padding-x: #{$accordion-body-padding-x};
+--#{$prefix}accordion-body-padding-y: #{$accordion-body-padding-y};
+--#{$prefix}accordion-active-color: #{$accordion-button-active-color};
+--#{$prefix}accordion-active-bg: #{$accordion-button-active-bg};
+```
+Al buscar la clase _.accordion_ en la hoja de estilos css. ve que están todas esas variables que me está listando bootstrap en la documentación y acá el valor por defecto,  si yo quisiera modificar el color del acordion de un `--bs-body-color: #212529;` lo puedo hacer en mi hoja.
+
+> no es que vayas a modificar la hoja de estilos de bootstrap, lo ideal cuando empiezas a hacer un proyecto es cargar la hoja de estilos y debajo cargar tu hoja propia donde ahi vas hacer modificaciones
+
+```css
+.accordion {
+  --bs-accordion-color: var(--bs-body-color);
+  --bs-accordion-bg: var(--bs-body-bg);
+  --bs-accordion-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease;
+  --bs-accordion-border-color: var(--bs-border-color);
+  --bs-accordion-border-width: var(--bs-border-width);
+  --bs-accordion-border-radius: var(--bs-border-radius);
+  --bs-accordion-inner-border-radius: calc(var(--bs-border-radius) - (var(--bs-border-width)));
+  --bs-accordion-btn-padding-x: 1.25rem;
+  --bs-accordion-btn-padding-y: 1rem;
+  --bs-accordion-btn-color: var(--bs-body-color);
+  --bs-accordion-btn-bg: var(--bs-accordion-bg);
+  --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23212529' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M2 5L8 11L14 5'/%3e%3c/svg%3e");
+  --bs-accordion-btn-icon-width: 1.25rem;
+  --bs-accordion-btn-icon-transform: rotate(-180deg);
+  --bs-accordion-btn-icon-transition: transform 0.2s ease-in-out;
+  --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23052c65' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M2 5L8 11L14 5'/%3e%3c/svg%3e");
+  --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  --bs-accordion-body-padding-x: 1.25rem;
+  --bs-accordion-body-padding-y: 1rem;
+  --bs-accordion-active-color: var(--bs-primary-text-emphasis);
+  --bs-accordion-active-bg: var(--bs-primary-bg-subtle);
+}
+```
+
+**Alerts**
+Si quieres poner algunos mensajes les puedes poner los colores que ya trae bootstrap
+
+**Badge**
+Que son como las notificaciones que vemos en redes sociales
+
+**Breadcrumb**
+
+![migaja](/assets/migaja.JPG)
+
+menus que vemos como de navegación  que se llaman 'migajas de pan' que suelen ser  muy frecuentes en comercios electrónicos donde estamos en una categoria pasamos a una subcategoria, pasamos al producto
+
+**Buttons** 
+
+tenemos grupo de botones
+
+**Card**
+
+Las típicas targetas
+
+**Collapse**
+Son como los toogles que nos permiten mostrar y ocultar contenido, de hecho el collapse se usa en el `navbar`
+
+**Dropdowns**
+
+Que nos permiten generar submenús  de una opcion 
+
+**Modal**
+
+ventana modal
+
+**NavBar**
+
+Es de los primeros que vamos a utilizar y que nos va permitir formar nuestro menú de navegación 
+
+**Navs & tabs** 
+
+navegacion por secciones
+
+**Offcanvas**
+![offcanvas](/assets/offcamvas.JPG)
+
+cuando nosotros tenemos un elemento que sale, un panel de navegación esto puede ser como el típico boton de hamburguesa
+
+o la interfaz de YOUTUBE todo el menú de navegación que tiene youtube mas o menos funciona de esta forma
+
+**Pagination**
+En caso de que estés aciendo una aplicación que traiga resultados de una base de datos y los quieras paginar
+
+**Placeholders**
+
+![placeholders](/assets/placeholders.JPG)
+
+Cuando está como cargando (cuando está tardando la interfaz) y ya luego se reemplaza por el contenido
+
+**Scrollspy**
+
+![scrollspy](/assets/scrollspy.JPG) 
+
+conforme vas avanzando te va mostrando la seccion en la que te encuentras. {tendriamos que programarlo para que se active solo en tamaño de escritorio}
+
+
+en las versiones 4 de bootstrap no tenia tantas variables css para el control de los elementos. 
+En estas ultimas versiones de bootstrap restructuraron en el código fuente de Bootstrap, si tu comparas la hoja de estilos de bootstrap 4 con cualquiera de la 5, cada uno de los componentes no tenia su lista personalizada de las variables que utilizaba,
+
+Ahora al tener cada componente su propio conjunto de variables eso permite hacer mas amigable  la personalizacion 😊😊 por que tu ya no tendrias que meterte con sobreescribir el codigo css de bootstrap simplemente irte a las variables de cada componente que te interesa modificar y hacer la modificacion pertinente
+
+**tooltips**
+
+la mayoria de los componentes de bootstrap tu vas a tener que meter codigo javaScript para hacerlos funcionar.
+
+¿Como funciona?
+
+en base a las clases css que tienen activadas y a los diferentes `Data-attributs` ej: `data-bs-placement` que bootstrap a creado con los diferentes valores.
+
+al tu ya tener bien codificado tu código html entonces la programación js lee ese código html y ya hace funcionar al componente de esa manera
+
+```html
+  <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Tooltip on top">
+  Tooltip on top
+</button>
+<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Tooltip on right">
+  Tooltip on right
+</button>
+<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Tooltip on bottom">
+  Tooltip on bottom
+</button>
+<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Tooltip on left">
+  Tooltip on left
+</button>
+```
+
+
+
 
 
 
