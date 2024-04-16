@@ -1232,9 +1232,109 @@ al tu ya tener bien codificado tu código html entonces la programación js lee 
 </button>
 ```
 
+### Sección Helpers
+
+traducido al español seria como los Auxiliares
+
+Mientras que los componentes son un elemento que tiene parte interactiva pero con parte visual, 
+
+Un Auxiliar es algo, es como un componenete que tiene la parte de código, nos ayuda a modificar algunas cosas
+
+#### Clearfix
+
+Esto ya es bastante viejo, yo les sugiero no utilizar,
+
+Hace 10 años cuando no existia _FLEXBOX ni GRIDCSS_ la unica manera era con _Floats_ 
+
+```css
+  @mixin clearfix() {
+  &::after {
+    display: block;
+    clear: both;
+    content: "";
+  }
+}
+```
+
+era un hack muy utilizado en el diseño web
+
+#### Color & Background 
+
+los colores base que trae bootstrap son 8 colores 
+![colores](/assets/colores.JPG)
+
+```html
+  <div class="text-bg-primary p-3">Primary with contrasting color</div>
+<div class="text-bg-secondary p-3">Secondary with contrasting color</div>
+<div class="text-bg-success p-3">Success with contrasting color</div>
+<div class="text-bg-danger p-3">Danger with contrasting color</div>
+<div class="text-bg-warning p-3">Warning with contrasting color</div>
+<div class="text-bg-info p-3">Info with contrasting color</div>
+<div class="text-bg-light p-3">Light with contrasting color</div>
+<div class="text-bg-dark p-3">Dark with contrasting color</div>
+```
+
+> lo puedes aplicar tanto en el fondo `class="bg-dark"`, como en el color de texto `class="text-primary"` 
 
 
+```html
+  <p class="text-white bg-danger">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit beatae nisi nulla quaerat amet vitae sequi asperiores quae possimus praesentium fugit corrupti nihil delectus mollitia reiciendis, esse voluptates corporis. Assumenda.
+    </p>
+```
+
+Simplemente es que te adaptes a la nomenclatura de las clases que nos ofrece CSS 
+
+#### Colored links 
+
+Desde html5 el color de los enlaces ya tiene un color predeterminado Azul y cuando lo usamos se pone morado, 
+
+```html
+  <a href="#" class="display-1">Enlace color por defecto</a>
+  <!--  -->
+    <a href="#" class="display-1 text-primary">Enlace</a> 
+    <a href="#" class="display-1 link-warning">Enlace</a>
+```
+Lo que hace es modificar el color pro boootstrap nos está ofreciendo los estilos particulares
+
+¿Entonces Cúal es la diferencia?
+
+el enlace que utilizó la clase `class="text-primary"` no hace ningun efecto (hover) al pasar el cursor por encima como los demas enlaces si lo hacen
 
 
+#### Anillo de enfoque
+Clases de utilidad que le permiten agregar y modificar estilos de anillos de enfoque personalizados a elementos y componentes.
 
 
+#### enlace de icono (Icon link)
+
+```html
+   <h2>enlace de icono (Icon link)</h2>
+    <a class="icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="#">
+      <svg class="bi" aria-hidden="true"><use xlink:href="#clipboard"></use></svg>
+      Icon link
+    </a>
+```
+
+#### Position 
+
+Para posicionar un elemento
+
+**Fixed top**
+
+* `<div class="fixed-top">...</div>`
+
+* `<div class="sticky-top">...</div>`
+
+
+Una de las cosas por la que bootstrap se ha vuelto muy popular es que todas estas utilidades  y clases auxiliares  que nos ofrece en todo los espectros de las mediaquerys
+
+**Responsive sticky top**
+
+```html
+  <div class="sticky-sm-top">Stick to the top on viewports sized SM (small) or wider</div>
+<div class="sticky-md-top">Stick to the top on viewports sized MD (medium) or wider</div>
+<div class="sticky-lg-top">Stick to the top on viewports sized LG (large) or wider</div>
+<div class="sticky-xl-top">Stick to the top on viewports sized XL (extra-large) or wider</div>
+<div class="sticky-xxl-top">Stick to the top on viewports sized XXL (extra-extra-large) or wider</div>
+```
