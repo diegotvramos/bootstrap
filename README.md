@@ -1338,3 +1338,254 @@ Una de las cosas por la que bootstrap se ha vuelto muy popular es que todas esta
 <div class="sticky-xl-top">Stick to the top on viewports sized XL (extra-large) or wider</div>
 <div class="sticky-xxl-top">Stick to the top on viewports sized XXL (extra-extra-large) or wider</div>
 ```
+
+ejemplo, en la version pequeña la quiero abajo, y en la version large (lg) lo quiero arriba, si yo voy invocando estas clases, esrtas clases se van modificando a lo largo del espectro de las media queris
+
+
+```html
+   <h2>Positions</h2>
+    <!-- eso quiere decir que desde el mobil va empesar pegada abajo, y con 'sticky-lg-top' entonces se va ir arriba -->
+    <nav class="sticky-bottom sticky-lg-top display-2 text-danger">Stiky Responsive Nav</nav>
+```
+
+Como es un comportamiento `sticky`
+
+> recuerda que en el `sticky` debe de haver contenido y se va quedar pegada cuando llegue a top, entonces para poder hacer eso ¿que puedo hacer yo en mi código? pues crear 50 _<br>_ 
+
+> mientras cualquier tamaño menor a large _LG_ ve que el posicionamiento es abajo
+
+ve como todas estas clases que nos va ofrecer utilitarias y auxiliares bootstrap menejan el espectro de toda las mediaQueris disponibles en el framework, es increible, por que en lugar de que tu te vayas a tu hoja de estilos y vayas haciendo tus mediaQueris y creando tus estilos aca simplemente vas activando las clases que necesites a lo largo del espectro de las media querys.
+
+Los puristas de CSS van a decir: "tu codigo html va quedar muy verboso" pero hagamos conciencia de algo:
+
+imagina que estas trabajando en un proyecto, donde quizá la parte mas importante es la programación, la lógica la coneccion a la base de datos y la IU. la puedes hacer con Bootstrap, por que no es tan detallada como el trabájo en la parte de la programación , entonces _Y o no perderia el tiempo haciendo artesanalmente cuando Bootstrap me ofrece esto_ 
+
+Mi sitio web es como mi jardin personal, por eso es que lo tengo con código css purito, como es un proyecto personal y yo me tomo el tiempo, y tambien me sirve para practicar codigo css artesanal pues ahi no voy a utilizar bootstrap.
+
+> Hay que saber en que proyectos combiene o no utilizar esto, cuando yo necesite agilidad en el desarrollo y la construccion de mis interfaces por supuesto que voy a utilizar un framework frontend, cuando la prioridad sea la parte des servidor, la logica de la programacion, la interactividad con javaScript por su puesto que voy a preferir la ayuda de un framework como bootstrap.
+
+
+#### Ratio
+
+Hay una nueva propiedad en css que se llama `aspect-ratio`. 
+
+Antes para poner en La pantalla ancha o pantalla panorámica (en inglés: widescreen) un video de Youtube y para que no se hiciera cuadrado extraño, habia una tecnica de aplicar un `padding-booton` de 56.25% 
+
+si pegamos un _Iframe de youtube_ aparentemente está bien, pero cuando tenemos la pantalla mas pequeña  al frame de youtube, ve que ya no es resposivo.
+
+Pero lo puedo hacer responsivo y que se vea correctamente dependiendo del `aspect-ratio` 
+
+
+```html
+  <div class="ratio ratio-1x1">
+  <div>1x1</div>
+</div>
+<div class="ratio ratio-4x3">
+  <div>4x3</div>
+</div>
+<div class="ratio ratio-16x9">
+  <div>16x9</div>
+</div>
+<div class="ratio ratio-21x9">
+  <div>21x9</div>
+</div>
+```
+
+la que nos comviene es la `16x9` es como la version  en formato _widescreen_  si usamos `<div class="ratio ratio-16x9">` ya se hace responsivo  y en forma horizontal.
+
+> Ve que con esas clases tenemos un video de youtube totalmente responsivo y adaptable
+
+```html
+  <h2>ratios</h2>
+    <div  class="ratio ratio-16x9">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/JuBBIJ7adjM?si=gXcmqLlKg8lGDwwF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+```
+
+#### Stacks 
+
+Estos son pequeños helpers para ayudarnos a la alineación de los _layout_ en formato vertical u horizontal
+
+**Vertical**
+
+Úselo .`vstack` para crear diseños verticales. Los elementos apilados tienen el ancho completo de forma predeterminada. Utilice `.gap-*` utilidades para agregar espacio entre elementos.
+
+```html
+  <div class="vstack gap-3">
+  <div class="p-2">First item</div>
+  <div class="p-2">Second item</div>
+  <div class="p-2">Third item</div>
+</div>
+```
+
+**Horizontal**
+Úselo `.hstack` para diseños horizontales. Los elementos apilados están centrados verticalmente de forma predeterminada y solo ocupan el ancho necesario. Utilice ``.gap-*`` utilidades para agregar espacio entre elementos.
+
+```html
+  <div class="hstack gap-3">
+  <div class="p-2">First item</div>
+  <div class="p-2">Second item</div>
+  <div class="p-2">Third item</div>
+</div>
+```
+
+
+
+```css
+  .ms-auto {
+  margin-left: auto !important;
+}
+```
+
+Usando utilidades de margen horizontal .ms-autocomo espaciadores:
+
+![stacks](/assets/stacks.JPG)
+
+<div class="hstack gap-3">
+  <div class="p-2">First item</div>
+  <div class="p-2 ms-auto">Second item</div>
+  <div class="p-2">Third item</div>
+</div>
+
+> Esto nos podria servir cuando yo quisiera hacer una pequeña navegación responsiva, digamos como sin tanto diseño 
+
+
+#### Stretched link
+
+Es el diseño para nuestros enlaces, esto sobre todo cuando nuestros elementos van a estar posicionados de forma relativa a un elemento padre
+
+#### Text truncation
+
+Cuando tienes un texto muy largo con estas clases de `.text-truncate` lo que hace es acortarlo
+
+```html
+  <h2>Text Truncate</h2>
+    <p class="text-white bg-danger text-truncate">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem soluta ipsam eligendi at blanditiis doloremque dolor, laboriosam, tenetur quia repudiandae, quam veritatis ratione minima! Ab amet nemo sapiente qui aliquam.
+    </p>
+```
+
+lo que detecta es el ancho de la pantalla.
+
+Bootstrap tiene unas clases para controlar la altura y la anchura ej: `.w-50` eso significa que el parrafo va tener el 50% de la pantalla
+
+
+#### Visually hidden
+
+nos ayuda cuando tenemos elementos con accesibilidad
+
+### Seccion UTILITIES parte 1.
+
+**API**
+
+Es muy similar a los helpers, a los auxiliares, estan mas organizadas en cuestion de las propiedades CSS de las que nos ayuda a nivel de SASS tiene una explicacion de la API basadas en la herramienta de sass que generan estas clases 
+
+> Para aquellos amantes de SASS
+
+#### Background
+
+Como poder generar las clases de color empienzan con `bg` y el color que les quieras aplicar, una de las ventajas de usar bootstrap cundo lo generas con SASS es que te genera toda esta variante de los colores dependiendo del color de opacidad que hayas trabajado
+
+![background-opacity](/assets/background-opacity.JPG)
+
+```html
+  <div class="bg-success p-2 text-white">This is default success background</div>
+<div class="bg-success p-2 text-white bg-opacity-75">This is 75% opacity success background</div>
+<div class="bg-success p-2 text-dark bg-opacity-50">This is 50% opacity success background</div>
+<div class="bg-success p-2 text-dark bg-opacity-25">This is 25% opacity success background</div>
+<div class="bg-success p-2 text-dark bg-opacity-10">This is 10% opacity success background</div>
+```
+
+#### Borders
+
+Ideal para imágenes, botones o cualquier otro elemento. 
+
+```html
+  <span class="border"></span>
+  <span class="border-top"></span>
+  <span class="border-end"></span>
+  <span class="border-bottom"></span>
+  <span class="border-start"></span>
+```
+si tu estás actualizando un proyecto que hayas hecho en bootstrap 4 a 5 ten en consideracion que lo que se llamaba `left` ahora sellama `start` y lo que se llamaba `right` ahora se llama `end` 
+
+* tambien podemos eliminar bordes específicos con la clase: `border border-top-0`.
+* tambien podemos aplicar bordes de colores con la clase: `class="border border-primary"`.
+
+
+#### Colors 
+
+> Consejo de accesibilidad: el uso de colores para agregar significado solo proporciona una indicación visual, que no se transmitirá a los usuarios de tecnologías de asistencia como lectores de pantalla. Asegúrese de que el significado sea obvio a partir del contenido mismo (por ejemplo, el texto visible con un contraste de color suficiente ) o que se incluya a través de medios alternativos, como texto adicional oculto con la .visually-hiddenclase.
+
+> el color blanco y negro manejas ciertas opacidades: `class="text-white-50 bg-dark"` y `class="text-black-50 bg-white"`.
+
+```css
+  .text-white-50 {
+  --bs-text-opacity: 1;
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+```
+
+De hecho sol las unicas 2 que tienen la variante de opacidad al 50%
+
+si tu quisieras manejar algun nivel de opacidad para alguno de estos colores, lo único que puedes hacer es replicar este código y te lo pegas en tu hoja particular de estilos en el proyecto que estés haciendo.
+
+
+#### Display
+
+ Admitimos deliberadamente solo un subconjunto de todos los valores posibles para la propiedad ``display``. Las clases se pueden combinar para obtener varios efectos según sea necesario.
+
+Todo los valores de Display están mapeados en clases:
+
+* none
+* inline
+* inline-block
+* block
+* grid
+* inline-grid
+* table
+* table-cell
+* table-row
+* flex
+* inline-flex
+
+```html
+  <div class="d-inline p-2 text-bg-primary">d-inline</div>
+  <div class="d-inline p-2 text-bg-dark">d-inline</div>
+```
+
+> `d == display`
+
+ejemplo:
+
+```html
+  <h3>Display</h3>
+    <p class="text-danger bg-dark d-none">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique mollitia inventore, modi facere eveniet repudiandae voluptatem rerum ex ducimus dolor, perspiciatis, enim animi! Aliquid nam nulla est magnam alias aperiam!
+    </p>
+```
+```css
+  .d-none {
+  display: none !important;
+  }
+```
+
+
+> **none**	`d-none`Desaparece la visualización de un elemento para que no tenga ningún efecto en el diseño (el documento se representa como si el elemento no existiera). Todos los elementos descendentes también tienen su pantalla apagada.Para que un elemento ocupe el espacio que normalmente tendría, pero sin producir nada, utilice la propiedad ``visibility``.
+
+![display-block](/assets/display-block.JPG)
+
+> `.d-md-block` En el tamaño mediano la disposicion de este elemento va ser en bloque
+
+![display-inline](/assets/display-inline.JPG)
+
+> `.d-lg-inline` Para que en _large_ sea en linea 
+
+
+### 
+
+
+
+
+
+
