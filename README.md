@@ -1582,10 +1582,134 @@ ejemplo:
 > `.d-lg-inline` Para que en _large_ sea en linea 
 
 
-### 
+El siguiente tema es `Flex` te vas a dar cuenta como bootstrap tiene mapeada toda las propiedades de flexbox
+
+### Flex
 
 
+> tienes que tomar cuso de flexbox si no lo has hecho.
+
+Esta fue una de las caracteristicas en la v4 de bootstrap que me enamoró  para que le diera una oportunidad.
+
+Tiene mapeada toda las propiedades de flexbox y lo tiene mapedado en toda las _media querys_
+
+>- **Enable flex behaviors**
+
+* .d-flex
+* .d-inline-flex
+* .d-sm-flex
+* .d-sm-inline-flex
+* .d-md-flex
+* .d-md-inline-flex
+* .d-lg-flex
+* .d-lg-inline-flex
+* .d-xl-flex
+* .d-xl-inline-flex
+* .d-xxl-flex
+* .d-xxl-inline-flex
 
 
+>- **Direction**
 
+* .flex-row
+* .flex-row-reverse
+* .flex-column
+* .flex-column-reverse
+* .flex-sm-row
+* .flex-sm-row-reverse
+* .flex-sm-column
+* .flex-sm-column-reverse
+* .flex-md-row
+* .flex-md-row-reverse
+* .flex-md-column
+* .flex-md-column-reverse
+* .flex-lg-row
+* .flex-lg-row-reverse
+* .flex-lg-column
+* .flex-lg-column-reverse
+* .flex-xl-row
+* .flex-xl-row-reverse
+* .flex-xl-column
+* .flex-xl-column-reverse
+* .flex-xxl-row
+* .flex-xxl-row-reverse
+* .flex-xxl-column
+* .flex-xxl-column-reverse
+
+```html
+<h3>FlexBox</h3>
+<!-- en el tamaño medium el flex box se vuelva en fila -->
+<!-- <section class="d-md-flex"> 
+'d-flex flex-column'  hasta acá va ser para la version movil.
+-->
+<section class="d-flex flex-column flex-sm-column-reverse flex-md-row flex-lg-row-reverse ">
+  <article>flex 1</article>
+  <article>flex 2</article>
+  <article>flex 3</article>
+  <article>flex 4</article>
+  <article>flex 5</article>
+</section>
+```
+Hacer esto de manera artesanal hubiera implicado hacer mis 4 media querys y estar cambiando el valor de la propiedad ``flex-direction`` en esas media querys.
+
+Bootstrap no solo va ser copiar y pegar código como el acordion, eso es a nivel de IU, pero tu tambien puedes utilizar y sacar el máximo provecho a tus conocimientos de css y utilizar estas clases utilitarias y auxiliares que nos ofrece bootstrap.
+
+
+>- **Justify content**
+>- **Align items**
+>- **Align self**
+>- **Fill**
+>- **Grow and shrink**
+>- **Auto margins**
+>>- With align-items
+>- **Wrap**
+>- **Order**
+>- **Align content**
+>- **Media object**
+>- **CSS**
+>>- Sass utilities API
+
+
+### Seccion Utilities parte 2
+
+#### Float 
+Los viejos Floats para poder flotar algo a la izquierda o a la derecha
+
+#### Interactions
+
+para seleccionar texto o inavilitarla
+
+**Selección de texto**
+
+**Eventos del puntero**
+
+#### Link
+Las utilidades de enlace se utilizan para estilizar los anclajes y ajustar su color, opacidad, desplazamiento de subrayado, color de subrayado y más.
+
+#### Object fit (ajustes del objeto)
+
+Utilice las utilidades de ajuste de objetos para modificar cómo se debe cambiar el tamaño del contenido de un elemento reemplazado , como ``<img>`` o ``<video>``, para que se ajuste a su contenedor.
+
+#### Opacity
+
+La _opacity_ propiedad establece el nivel de opacidad de un elemento. El nivel de opacidad describe el nivel de transparencia, donde ``1`` no es transparente en absoluto, ``.5`` es visible en un 50% y ``0`` es completamente transparente.
+
+Establezca el valor ``opacity ``de un elemento mediante ``.opacity-{value}``utilidades
+
+bootstrap maneja las opacidades en fraciones de 25%
+
+¿Qué pasaria si tu necesitaras una opacidad de 805? 
+Te creas una clase utilitaria.
+ojo no en el archivo de bootstrap sino en una hoja personal donde vayas trabajando las modificaciones y te creas una clase llamada opacity: 80% 
+
+#### Overflow Desbordamiento
+
+Nos dice que es lo que va pasar con el contenido que desborde su caja contenedora.
+
+```html
+  <div class="overflow-auto">...</div>
+  <div class="overflow-hidden">...</div>
+  <div class="overflow-visible">...</div>
+  <div class="overflow-scroll">...</div>
+```
 
