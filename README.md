@@ -1712,4 +1712,152 @@ Nos dice que es lo que va pasar con el contenido que desborde su caja contenedor
   <div class="overflow-visible">...</div>
   <div class="overflow-scroll">...</div>
 ```
+#### Position
+
+Utilice estas utilidades abreviadas para configurar rápidamente la posición de un elemento.
+
+Los 5 tipos de posicionamientos que tenemos en bootstrap.
+
+```html
+<div class="position-static">...</div>
+<div class="position-relative">...</div>
+<div class="position-absolute">...</div>
+<div class="position-fixed">...</div>
+<div class="position-sticky">...</div>
+```
+
+Organice elementos fácilmente con las utilidades de posicionamiento de bordes. El formato es ``{property}-{position}``.
+
+Cuando la propiedad es una de:
+
+* ``top`` - para la _top posición_ vertical
+* ``start`` - para la _left posición_ horizontal (en LTR)
+* ``bottom`` - para la _bottom posición_ vertical
+* ``end`` - para la _right posición_ horizontal (en LTR)
+
+Donde la posición es una de:
+
+* 0- para 0 posición de borde
+* 50- para 50% posición de borde (al centro)
+* 100- para 100% posición de borde (al final)
+
+![position](/assets/position.JPG)
+
+> ¿Cumple la misma funcion que un grid🤔🤔? creo que no por que una grid ordena.
+
+Si tú necesitas valores diferentes ya sea que tu te crees tu clase y vayas modificando o siquieres seguir el patron de las clases de bootstrap, pues te creas una clase top-40 y aplicas  `top-40` 
+
+*incluso centrar elementos*
+
+![position-examples](/assets/position-examples.JPG)
+
+*Es hora de que heches a volar tu imaginación y dependiendo de las necesidades que tengas en la IU que estes construyendo*
+
+
+#### Shadows
+
+para aplicar sombras {En modo oscuro no se nota}
+
+Tiene varios tamaños
+
+#### Sizing
+
+![sizing](/assets/sizing.JPG)
+
+```html
+  <div style="height: 100px;">
+  <div class="h-25 d-inline-block" style="width: 120px;">Height 25%</div>
+  <div class="h-50 d-inline-block" style="width: 120px;">Height 50%</div>
+  <div class="h-75 d-inline-block" style="width: 120px;">Height 75%</div>
+  <div class="h-100 d-inline-block" style="width: 120px;">Height 100%</div>
+  <div class="h-auto d-inline-block" style="width: 120px;">Height auto</div>
+</div>
+```
+
+donde 
+
+```css
+  .h-25 {
+  height: 25% !important;
+}
+```
+
+> Cuando estes trabajando la altura tu elemento contenedor padre debe tener una altura definida en un valor absoluto como los `px` 
+
+![sizing-height](/assets/sizing-height.JPG)
+
+```html
+  <div style="height: 100px;">
+    <div class="h-25 d-inline-block" style="width: 120px;">Height 25%</div>
+    <div class="h-50 d-inline-block" style="width: 120px;">Height 50%</div>
+    <div class="h-75 d-inline-block" style="width: 120px;">Height 75%</div>
+    <div class="h-100 d-inline-block" style="width: 120px;">Height 100%</div>
+    <div class="h-auto d-inline-block" style="width: 120px;">Height auto</div>
+  </div>
+```
+
+
+
+***Relativo a la ventana gráfica*** Esto nos puede servir para construir una ``hero-image``
+También puede utilizar utilidades para establecer el ancho y el alto en relación con la ventana gráfica.
+
+```html
+  <div class="min-vw-100">Min-width 100vw</div>
+  <div class="min-vh-100">Min-height 100vh</div>
+  <div class="vw-100">Width 100vw</div>
+  <div class="vh-100">Height 100vh</div>
+```
+
+```css
+  .vw-100 {
+  width: 100vw !important;
+}
+
+.min-vw-100 {
+  min-width: 100vw !important;
+}
+```
+
+**Ejemplo:**
+
+```html
+  <div class="bg-dark w-100 min-vh-100 d-flex justify-content-center align-items-center">
+  <!-- '.align-items-center' para alinear en el eje transversal -->
+  <h2 class="display-1 text-white ">Relative to the viewport</h2>
+</div>
+```
+
+alinea y centra lo que entra en el tamaño movil si pasa de su tamaño ya no alinea. hay que poner una letra responsiva?
+
+![hero](/assets/hero-image.JPG)
+
+
+A mayor conocimiento de CSS y a mayor conocimiento que tengas de las utilidades de bootstrap.
+
+Bootstrap ya se ha vuelto _Utilities-first_ tiene demaciadas utilidades aca simplemente vas a estar invocando diferentes clases que oviamente van activando ciertas propiedades css.
+
+Tawild se clasifica como un _framework utility-first_
+
+> Los _framework utility-first_ no solo te van a dar los componentes (el código para que tu ahi lo copies y nada mas modifiques el contenido) como los componenetes de Bootstrap, sino que acá trae muchas utilidades que si tu tienes buenos conocimientos de css entonces le puedes sacar el maximo provecho
+
+la siguiente seccion de utilidades mapea lo que es el modelo de caja las propiedades _margin y padding_ del modelo de caja de css
+
+### 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
