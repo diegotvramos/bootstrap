@@ -1827,7 +1827,11 @@ También puede utilizar utilidades para establecer el ancho y el alto en relaci�
 </div>
 ```
 
-alinea y centra lo que entra en el tamaño movil si pasa de su tamaño ya no alinea. hay que poner una letra responsiva?
+alinea y centra lo que entra en el tamaño movil si pasa de su tamaño ya no alinea. hay que poner una letra responsiva? 🤔🤔
+
+
+> lo solucione con estó `.text-center` 😊😊
+
 
 ![hero](/assets/hero-image.JPG)
 
@@ -1842,7 +1846,11 @@ Tawild se clasifica como un _framework utility-first_
 
 la siguiente seccion de utilidades mapea lo que es el modelo de caja las propiedades _margin y padding_ del modelo de caja de css
 
-### 
+### Sección Utilities Spacing (Margin & Padding)
+
+> Margin: Es el espacio externo entre los elementos y podemos aplicarlos a un lado o a los 4
+
+> Padding: es la distancia que hay del borde de la caja al contenido
 
 
 
