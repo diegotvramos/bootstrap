@@ -1850,9 +1850,124 @@ la siguiente seccion de utilidades mapea lo que es el modelo de caja las propied
 
 > Margin: Es el espacio externo entre los elementos y podemos aplicarlos a un lado o a los 4
 
-> Padding: es la distancia que hay del borde de la caja al contenido
+> Padding: es la distancia que hay del borde de la caja al contenido 
+
+![padding](/assets/padding.JPG)
+
+**Spacing**
+
+(margin, padding, and gap) margen, relleno y espacio 
 
 
+Las clases se nombran usando el formato ``{(property(Propiedad))}{sides(lado)}-{size(tamaño)}`` para ``xs`` y ``{property(propiedad)}{sides(lado)}-{breakpoint(punto de interrupción)}-{(size(tamaño))}`` para `sm, md, lg, xl`y `xxl`.
+
+ > ¡Importante! tambien son responsivas sea en `sm, md, lg, xl`y `xxl`.
+
+Cuando la _propiedad_ es una de:
+
+* ``m`` - para clases que establezcan ``margin``
+* ``p`` - para clases que establezcan ``padding``
+
+> Recuerda que el _margin_ y el _padding_ se pueden aplicar de 1 a 4 valores, recuerda que cuando aplicamos el _margin_ a dos valores el primer valor es para _(top y booton)_ horizontales y el segundo valor para _(left y right)_ eje horizontal
+
+Donde los lados _(sides)_ es uno de:
+
+* ``t`` - para clases que establecen ``margin-top`` o ``padding-top``
+* ``b`` - para clases que establecen ``margin-bottom`` o ``padding-bottom``
+* ``s`` - (start) para clases que se establecen ``margin-left`` o ``padding-left`` in LTR ``margin-right`` o ``padding-right`` en RTL
+* ``e`` - (end) para clases que se establecen ``margin-right`` o ``padding-right`` en LTR, ``margin-left`` o ``padding-left`` en RTL
+* ``x`` - para clases que establecen tanto ``*-left`` y ``*-right``
+* ``y`` - para clases que establecen tanto ``*-top`` y ``*-bottom``
+* en blank: para clases que establecen a ``margin`` o ``padding`` en los 4 lados del elemento
+
+
+Donde el tamaño _(size)_ es uno de:
+
+* ``0`` - para clases que eliminan el ``margin`` o el ``padding`` configurándolo en ``0``
+* ``1`` - (por defecto) para clases que establecen el ``margin`` o el ``padding`` en ``$spacer`` ``* .25``
+* ``2`` - (por defecto) para clases que configuran ``margin`` o ``padding`` para ``$spacer`` ``* .5``
+* ``3`` - (por defecto) para clases que configuran ``margin`` o ``padding`` para ``$spacer``
+* ``4`` - (por defecto) para clases que configuran ``margin`` o ``padding`` para ``$spacer`` ``* 1.5``
+* ``5`` - (por defecto) para clases que configuran ``margin`` o ``padding`` para ``$spacer`` ``* 3``
+* ``auto``- para clases que configuran el ``margin`` modo automático
+
+> no puedes tener _paddings_ automáticos pero el valor de `auto` si sirve para las clases de `margin`
+
+Ejemplos
+A continuación se muestran algunos ejemplos representativos de estas clases:
+
+```css
+  .mt-0 {
+  margin-top: 0 !important;
+}
+
+.ms-1 {
+  margin-left: ($spacer * .25) !important;
+}
+
+.px-2 {
+  padding-left: ($spacer * .5) !important;
+  padding-right: ($spacer * .5) !important;
+}
+
+.p-3 {
+  padding: $spacer !important;
+}
+```
+**Negative margin**
+
+```css
+  .mt-n1 {
+  margin-top: -0.25rem !important;
+}
+```
+
+##### GAP (brecha)
+
+Cuando estamos trabajando con el modelo GRID o con el modelo FLEXBOX 
+
+> Propiedad GAP: es la **separacion** entre los elementos del GRID o del flexbox 
+
+ Esto puede ahorrarle la necesidad de agregar utilidades de margen a elementos secundarios individuales de una cuadrícula o contenedor flexible. Las utilidades de Gap responden de forma predeterminada y se generan a través de nuestra API de utilidades, basada en el ``$spacers`` mapa de Sass.
+
+![gap](/assets/gap.JPG)
+
+ ```html
+  <div class="grid gap-3">
+    <div class="p-2 g-col-6">Grid item 1</div>
+    <div class="p-2 g-col-6">Grid item 2</div>
+    <div class="p-2 g-col-6">Grid item 3</div>
+    <div class="p-2 g-col-6">Grid item 4</div>
+  </div>
+ ```
+
+EJERCICIO
+
+> ¡CUIDADO! recuerda poner toda las clases en **minuscula** por que si es sensible a mayusculas y minusculas.
+
+> ¿Como puedo lograr que en el tamaño `lg` el parrafo se centrara? Con la tecnica de **margenes automáticos** a _left_ y _right_ con la clase `.mx-lg-auto`
+
+```css
+  .mx-lg-auto {
+    margin-right: auto !important;
+    margin-left: auto !important;
+  }
+```
+
+```html
+  <h2>Spacing</h2>
+  <p class="bg-danger text-white m-3 p-5 m-sm-0 p-sm-3 mt-md-5 pb-md-4 w-50 mx-lg-auto py-lg-5 ps-xl-5 pe-xxl-5">
+    <!-- 'X' representa: left y right, 'Y' representa: top y booton -->
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis sunt distinctio, ipsa hic corporis fugiat quod, rerum quasi exercitationem, ut et ad voluptatibus similique laboriosam! Eveniet similique ipsam at tempore?
+  </p>
+```
+
+
+```css
+.m-3 {
+  margin: 1rem !important;
+}
+```
 
 
 
