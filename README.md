@@ -1969,11 +1969,152 @@ EJERCICIO
 }
 ```
 
+### Sección Utilites parte 3
+
+##### TEXT 
+
+para controlar los mas comun: alignment, wrapping, weight, and more
+
+![text-align](/assets/text-align.JPG)
+
+```html
+  <p class="text-start">Start aligned text on all viewport sizes.</p>
+  <p class="text-center">Center aligned text on all viewport sizes.</p>
+  <p class="text-end">End aligned text on all viewport sizes.</p>
+
+<!-- estas secciones tambien las tenemos disponibles a lo largo de el espectro de las 'media-querys' -->
+
+  <p class="text-sm-end">End aligned text on viewports sized SM (small) or wider.</p>
+  <p class="text-md-end">End aligned text on viewports sized MD (medium) or wider.</p>
+  <p class="text-lg-end">End aligned text on viewports sized LG (large) or wider.</p>
+  <p class="text-xl-end">End aligned text on viewports sized XL (extra large) or wider.</p>
+  <p class="text-xxl-end">End aligned text on viewports sized XXL (extra extra large) or wider.</p>
+```
+
+##### Font size
+
+> Acuerdate que ya teniamos estas clases de `display` que son muy grandes pero tambien tenemos otras clases que son responsivas
+
+![text-size](/assets/text-size.JPG)
+
+```html
+  <p class="fs-1">.fs-1 text</p>
+  <p class="fs-2">.fs-2 text</p>
+  <p class="fs-3">.fs-3 text</p>
+  <p class="fs-4">.fs-4 text</p>
+  <p class="fs-5">.fs-5 text</p>
+  <p class="fs-6">.fs-6 text</p>
+```
+```css
+  .fs-1 {
+  font-size: calc(1.375rem + 1.5vw) !important;
+}
+```
 
 
+##### Font weight and italics
+
+y en sass todolo lo que puedes modificar `mixes o mixeds`
+##### Line height
+
+##### Text decoration
+
+#### Vertical align (alineación vertical)
 
 
+```html
+  <table style="height: 100px;">
+  <tbody>
+    <tr>
+      <td class="align-baseline">baseline</td>
+      <td class="align-top">top</td>
+      <td class="align-middle">middle</td>
+      <td class="align-bottom">bottom</td>
+      <td class="align-text-top">text-top</td>
+      <td class="align-text-bottom">text-bottom</td>
+    </tr>
+  </tbody>
+</table>
+```
+#### Visibility
 
+un ejemplo:
+
+```html
+
+```
+
+![text-justify](/assets/text-justify.avif)
+ 
+**Yo no suelo justificar el texto por que se vuelve cansada la lectura**
+
+
+#### z-index
+Utilice nuestras utilidades de bajo nivel z-indexpara cambiar rápidamente el nivel de pila de un elemento o componente.
+
+![z-index](/assets/z-index.JPG)
+
+```html
+  <div class="z-3 position-absolute p-5 rounded-3"><span>z-3</span></div>
+  <div class="z-2 position-absolute p-5 rounded-3"><span>z-2</span></div>
+  <div class="z-1 position-absolute p-5 rounded-3"><span>z-1</span></div>
+  <div class="z-0 position-absolute p-5 rounded-3"><span>z-0</span></div>
+  <div class="z-n1 position-absolute p-5 rounded-3"><span>z-n1</span></div>
+```
+
+### Extend
+
+es la capacidad que tenemos de poder extender las caracteristicas de Bootstrap, son recomendaciones
+
+**Resumen**
+
+Profundizaremos más en cada uno de estos, pero en un nivel alto, esto es lo que guía nuestro enfoque.
+
+* Los componentes deben ser responsivos y estar orientados a dispositivos móviles
+* Los componentes deben construirse con una clase base y extenderse mediante clases modificadoras.
+* Los estados de los componentes deben obedecer a una escala de índice z común
+* Siempre que sea posible, prefiera una implementación HTML y CSS en lugar de JavaScript.
+* Siempre que sea posible, utilice utilidades en lugar de estilos personalizados.
+* Siempre que sea posible, evite imponer requisitos estrictos de HTML (selectores secundarios)
+
+
+#### Iconos
+
+bootstrap tiene sus propios iconos
+
+los iconos los puedes descargar en `npm` e incluso los puedes abrir en un documento de figma por si estas haciendo un diseño IU  antes de pasarlo a codigo.
+
+Hay formas de utilizarlos 
+
+1. enbebido: copiamos el codígo svg.
+
+2. como imagen externa: lo descargas en formato vectorial lo pones en una etiqueta img
+
+3. como fuente: agregamos la clase: `<i class="bi-alarm"></i>`
+
+> el código SVG es código vectorial en formato html
+
+Cuando mandas a llamar el icono por el ``Icon font`` fuente web, debes mandar a llamar el **CDN de los iconos de bootstrap** por que no se va visualizar, no se va ver.
+
+`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">`
+
+### ABOUT acerca.
+
+es el historial de todo lo que le han ido implementando, como se mantiene el codigo en GitHub, historia,
+
+Todos estos tipos de proyectos generalmente son construidos por un equipo de dessarrolladores que colaboran en plataformas como github, 
+
+Las licencias son OpenSourse la que tiene boostrap y la parte de las traducciones (pero no están al 100% con la documentación oficial), 
+
+Estamos en el mundo de la programación, el ingles no tiene que ser una limitante todo los lenguajes de programación se escriben en ingles
+
+**Migración** 
+En esta sección tu te puedes enterar de todo los cambios y tambien algunas recomendaciones de si tienes un proyecto de una version anterior como poder migrarlo
+
+
+---
+
+## Comenzando a crear un sitio web con Bootstrap
 
 
 
